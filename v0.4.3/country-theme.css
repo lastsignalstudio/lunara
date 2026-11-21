@@ -1,0 +1,12 @@
+/* LUNARA v0.4.3 country atmosphere and RTL refinements */
+:root{--country-a:#123b50;--country-b:#55d7c7;--country-c:#f2bb72}
+body{position:relative;isolation:isolate;background:radial-gradient(ellipse at 78% 4%,color-mix(in srgb,var(--country-b) 28%,transparent),transparent 43%),linear-gradient(155deg,color-mix(in srgb,var(--country-a) 72%,#080d1b),#080d1b 62%)!important;background-attachment:fixed!important;transition:background .45s ease}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 18% 78%,color-mix(in srgb,var(--country-c) 16%,transparent),transparent 42%),linear-gradient(180deg,transparent 0%,#05091455 100%)}
+.calendar-card,.agenda,.country-panel{background:linear-gradient(145deg,color-mix(in srgb,var(--panel) 86%,var(--country-a) 14%),color-mix(in srgb,var(--panel2) 82%,var(--country-b) 18%))!important;backdrop-filter:blur(16px)}
+.country-art{background:radial-gradient(circle at 70% 24%,var(--country-c),transparent 22%),linear-gradient(135deg,var(--country-a),var(--country-b))!important;border:1px solid color-mix(in srgb,var(--country-b) 60%,transparent);box-shadow:0 18px 55px color-mix(in srgb,var(--country-a) 65%,transparent)}
+.primary-btn,.day.today .num{background:linear-gradient(120deg,var(--country-a),var(--country-b))!important}
+html[dir=rtl] body{text-align:right}
+html[dir=rtl] .topbar,html[dir=rtl] .calendar-head,html[dir=rtl] .agenda-head,html[dir=rtl] .toolbar{direction:rtl}
+html[dir=rtl] .day-event{border-left:0;border-right:2px solid var(--accent)}
+html[dir=rtl] .event-item{direction:rtl}
+html[dir=rtl] .art-caption{direction:rtl}
