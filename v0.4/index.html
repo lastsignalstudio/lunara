@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d1b"><meta name="description" content="LUNARA GLOBAL — a calendar shaped by your world.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+<title>LUNARA GLOBAL v0.4</title>
+</head>
+<body>
+<div class="app-shell" id="app" data-country="VN">
+<header class="topbar">
+  <a class="brand"><span class="brand-mark">◒</span><span>LUNARA<span class="brand-sub">GLOBAL</span></span></a>
+  <div class="top-actions"><select id="language" aria-label="Language"><option value="vi">Tiếng Việt</option><option value="en">English</option></select><button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☼</button></div>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><i class="pulse"></i><span id="eyebrow">YOUR TIME, IN HARMONY</span></div>
+    <h1 id="greeting">Dành chỗ<br><em>cho điều quan trọng.</em></h1>
+    <p id="subtitle">Lịch của bạn, mang sắc màu thế giới.</p>
+  </div>
+  <div class="country-art" id="countryArt" aria-label="Country visual">
+    <div class="art-sun"></div><div class="art-orbit"></div><div class="art-symbol" id="artSymbol">🌸</div>
+    <div class="art-caption"><span id="artCountry">VIỆT NAM</span><small id="artTagline">TIME • CULTURE • FUTURE</small></div>
+  </div>
+</section>
+<section class="country-panel">
+ <div><div class="eyebrow" id="countryEyebrow">YOUR WORLD</div><h2 id="countryHeading">Giao diện theo quốc gia</h2><p id="countryDescription">LUNARA kết hợp thẩm mỹ tương lai với cảm hứng văn hóa địa phương.</p></div>
+ <label class="country-picker"><span id="countryLabel">Quốc gia</span><select id="country">
+ <option value="VN">🇻🇳 Việt Nam</option><option value="US">🇺🇸 Hoa Kỳ</option><option value="GB">🇬🇧 Vương quốc Anh</option><option value="JP">🇯🇵 Nhật Bản</option><option value="FR">🇫🇷 Pháp</option><option value="DE">🇩🇪 Đức</option><option value="KR">🇰🇷 Hàn Quốc</option><option value="CN">🇨🇳 Trung Quốc</option><option value="AU">🇦🇺 Úc</option><option value="CA">🇨🇦 Canada</option><option value="IN">🇮🇳 Ấn Độ</option><option value="BR">🇧🇷 Brazil</option>
+ </select></label>
+</section>
+<section class="calendar-card">
+ <div class="calendar-head"><div><div class="eyebrow" id="calendarLabel">LỊCH CỦA BẠN</div><h2 id="periodTitle"></h2><p id="localClock" class="subdate"></p></div><div class="month-controls"><button id="prev" class="icon-btn" aria-label="Previous">←</button><button id="today" class="today-btn">Hôm nay</button><button id="next" class="icon-btn" aria-label="Next">→</button></div></div>
+ <div class="toolbar"><div class="view-switch"><button class="view-btn active" data-view="month" id="monthView">Tháng</button><button class="view-btn" data-view="week" id="weekView">Tuần</button><button class="view-btn" data-view="day" id="dayView">Ngày</button></div><div class="timezone"><span id="timezoneLabel">Múi giờ</span><strong id="timezoneValue"></strong></div></div>
+ <div id="calendarGrid"></div><div class="legend"><span><i class="dot today-dot"></i>Hôm nay</span><span><i class="dot event-dot"></i>Sự kiện</span><span><i class="dot holiday-dot"></i>Ngày lễ tham khảo</span></div>
+</section>
+<section class="agenda"><div class="agenda-head"><div><div class="eyebrow" id="agendaLabel">LỊCH TRÌNH</div><h2 id="selectedTitle"></h2></div><button id="addEvent" class="primary-btn">＋ <span id="addLabel">Thêm sự kiện</span></button></div><div class="agenda-tools"><span id="agendaHint">Sự kiện được lưu trên thiết bị này.</span><button id="exportBtn" class="today-btn">↓ <span id="exportLabel">Xuất dữ liệu</span></button></div><div id="eventList" class="event-list"></div></section>
+</main>
+<footer><span>◒ LUNARA GLOBAL · v0.4</span><span id="footerText">Thời gian của bạn. Thế giới của bạn.</span></footer>
+</div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true"><form id="eventForm" class="modal-card"><button type="button" id="closeModal" class="close-btn">×</button><div class="eyebrow">MAKE IT COUNT</div><h2 id="modalTitle">Sự kiện mới</h2>
+<label><span>Tên sự kiện</span><input id="eventName" maxlength="80" required></label><label><span>Ngày</span><input id="eventDate" type="date" required></label><label><span>Giờ</span><input id="eventTime" type="time"></label>
+<label><span>Phân loại</span><select id="eventCategory"><option value="personal">Cá nhân</option><option value="work">Công việc</option><option value="health">Sức khỏe</option><option value="travel">Du lịch</option><option value="other">Khác</option></select></label>
+<label><span>Lặp lại</span><select id="eventRepeat"><option value="none">Không lặp lại</option><option value="daily">Hằng ngày</option><option value="weekly">Hằng tuần</option><option value="monthly">Hằng tháng</option><option value="yearly">Hằng năm</option></select></label>
+<label class="checkline"><input id="eventReminder" type="checkbox"><span>Nhắc khi ứng dụng đang mở</span></label>
+<div class="form-actions"><button type="button" id="cancelEvent" class="today-btn">Hủy</button><button class="primary-btn" type="submit">Lưu sự kiện</button></div></form></div>
+<div id="toast" class="toast" aria-live="polite"></div><script src="app.js"></script>
+</body></html>
