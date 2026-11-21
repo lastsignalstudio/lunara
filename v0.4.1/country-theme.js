@@ -44,10 +44,7 @@
     apply();
     const picker = $("country");
     if (picker) picker.addEventListener("change", () => setTimeout(apply, 0));
-    const app = $("app");
-    if (app && "MutationObserver" in window) {
-      new MutationObserver(apply).observe(app, {attributes:true, attributeFilter:["data-country"]});
-    }
+    
     window.addEventListener("pageshow", apply);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) apply(); });
   }
