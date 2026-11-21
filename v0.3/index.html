@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d1b"><meta name="description" content="A thoughtful global calendar for life, anywhere in the world.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+<title>LUNARA GLOBAL v0.3</title>
+</head>
+<body><div class="app-shell">
+<header class="topbar">
+  <a class="brand"><span class="brand-mark">◒</span><span>LUNARA<span class="brand-sub">GLOBAL</span></span></a>
+  <div class="top-actions"><select id="language" aria-label="Language"><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="zh">中文</option></select><button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☼</button></div>
+</header>
+<main>
+<section class="hero"><div><div class="eyebrow"><i class="pulse"></i><span id="eyebrow">YOUR TIME, IN HARMONY</span></div><h1 id="greeting">Make room<br><em>for what matters.</em></h1><p id="subtitle">A thoughtful calendar for life, anywhere in the world.</p></div><div class="orb"><div class="orb-core"></div><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span></div></section>
+<section class="calendar-card">
+ <div class="calendar-head"><div><div class="eyebrow" id="calendarLabel">YOUR CALENDAR</div><h2 id="periodTitle"></h2><p id="localClock" class="subdate"></p></div><div class="month-controls"><button id="prev" class="icon-btn" aria-label="Previous">←</button><button id="today" class="today-btn">Today</button><button id="next" class="icon-btn" aria-label="Next">→</button></div></div>
+ <div class="toolbar"><div class="view-switch"><button class="view-btn active" data-view="month" id="monthView">Month</button><button class="view-btn" data-view="week" id="weekView">Week</button><button class="view-btn" data-view="day" id="dayView">Day</button></div>
+ <label class="country-label"><span id="countryLabel">Country</span><select id="country"><option value="VN">Vietnam</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="JP">Japan</option><option value="FR">France</option><option value="DE">Germany</option><option value="KR">South Korea</option><option value="CN">China</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="IN">India</option><option value="BR">Brazil</option></select></label></div>
+ <div class="calendar-meta"><span id="timezoneLabel">Local time zone</span><strong id="timezoneValue"></strong></div>
+ <div id="calendarGrid"></div><div class="legend"><span><i class="dot today-dot"></i><span id="todayLegend">Today</span></span><span><i class="dot event-dot"></i><span id="eventLegend">Events</span></span><span><i class="dot holiday-dot"></i><span id="holidayLegend">Holidays</span></span></div>
+</section>
+<section class="agenda"><div class="agenda-head"><div><div class="eyebrow" id="agendaLabel">YOUR AGENDA</div><h2 id="selectedTitle"></h2></div><button id="addEvent" class="primary-btn">＋ <span id="addLabel">Add event</span></button></div><div class="agenda-tools"><span id="agendaHint">Events are saved on this device.</span><button id="exportBtn" class="today-btn">↓ <span id="exportLabel">Export</span></button></div><div id="eventList" class="event-list"></div></section>
+</main>
+<footer><span>◒ LUNARA GLOBAL · v0.3</span><span id="footerText">Your time. Your world.</span></footer></div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true"><form id="eventForm" class="modal-card"><button type="button" id="closeModal" class="close-btn">×</button><div class="eyebrow" id="modalEyebrow">MAKE IT COUNT</div><h2 id="modalTitle">New event</h2>
+<label><span id="eventNameLabel">Event name</span><input id="eventName" maxlength="80" required></label>
+<label><span id="eventDateLabel">Date</span><input id="eventDate" type="date" required></label>
+<label><span id="eventTimeLabel">Time</span><input id="eventTime" type="time"></label>
+<label><span id="categoryLabel">Category</span><select id="eventCategory"><option value="personal">Personal</option><option value="work">Work</option><option value="health">Health</option><option value="travel">Travel</option><option value="other">Other</option></select></label>
+<label><span id="repeatLabel">Repeat</span><select id="eventRepeat"><option value="none">Does not repeat</option><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="yearly">Yearly</option></select></label>
+<label class="checkline"><input id="eventReminder" type="checkbox"><span id="reminderLabel">Remind me while app is open</span></label>
+<div class="form-actions"><button type="button" id="cancelEvent" class="today-btn">Cancel</button><button class="primary-btn" type="submit" id="saveEvent">Save event</button></div></form></div>
+<div id="toast" class="toast" aria-live="polite"></div><script src="app.js"></script>
+</body></html>
