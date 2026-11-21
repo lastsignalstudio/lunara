@@ -9,9 +9,10 @@ ja:{eyebrow:"あなたの時間を、心地よく",greeting:"大切なことに<
 ko:{eyebrow:"당신의 시간을 조화롭게",greeting:"소중한 일에<br><em>시간을 내세요.</em>",subtitle:"세계 어디서나 함께하는 세심한 캘린더.",calendar:"내 캘린더",today:"오늘",todayLegend:"오늘",eventLegend:"일정 있음",agenda:"내 일정",add:"일정 추가",empty:"이 날에는 예정된 일정이 없습니다.",newEvent:"새 일정",name:"일정 이름",date:"날짜",time:"시간 (선택)",save:"저장",cancel:"취소",footer:"당신의 시간, 당신의 세계.",delete:"삭제",days:["일","월","화","수","목","금","토"],make:"소중하게 채우세요"},
 zh:{eyebrow:"让时间，恰到好处",greeting:"为重要的事<br><em>留出时间。</em>",subtitle:"无论身在何处，都能从容安排生活。",calendar:"我的日历",today:"今天",todayLegend:"今天",eventLegend:"有事件",agenda:"日程安排",add:"添加事件",empty:"这一天还没有安排。",newEvent:"新事件",name:"事件名称",date:"日期",time:"时间（可选）",save:"保存",cancel:"取消",footer:"你的时间，你的世界。",delete:"删除",days:["日","一","二","三","四","五","六"],make:"让每一刻都重要"}
 };
-const now=new Date();let view=new Date(now.getFullYear(),now.getMonth(),1),selected=iso(now),lang=localStorage.getItem("lunara-lang")||"en",editing=null;
+const now=new Date();let view=new Date(now.getFullYear(),now.getMonth(),1),selected,lang=localStorage.getItem("lunara-lang")||"en",editing=null;
 let events=JSON.parse(localStorage.getItem("lunara-events")||"[]");
 const dateISO=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+selected=dateISO(now);
 function iso(d){return dateISO(d)}function parse(s){let [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)}
 function tr(k){return (translations[lang]||translations.en)[k]}
 function applyLanguage(){let t=translations[lang]||translations.en;document.documentElement.lang=lang;$("eyebrow").textContent=t.eyebrow;$("greeting").innerHTML=t.greeting;$("subtitle").textContent=t.subtitle;$("calendarLabel").textContent=t.calendar;$("today").textContent=t.today;$("todayLegend").textContent=t.todayLegend;$("eventLegend").textContent=t.eventLegend;$("agendaLabel").textContent=t.agenda;$("addLabel").textContent=t.add;$("footerText").textContent=t.footer;$("modalEyebrow").textContent=t.make;$("modalTitle").textContent=t.newEvent;$("eventNameLabel").textContent=t.name;$("eventDateLabel").textContent=t.date;$("eventTimeLabel").textContent=t.time;$("saveEvent").textContent=t.save;$("cancelEvent").textContent=t.cancel;render()}
