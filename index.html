@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1020"><meta name="description" content="LUNARA GLOBAL — a calmer calendar for everyone.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+<title>LUNARA GLOBAL</title>
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <a class="brand" href="#" aria-label="LUNARA home"><span class="brand-mark">◒</span><span>LUNARA<span class="brand-sub">GLOBAL</span></span></a>
+  <div class="top-actions">
+    <select id="language" aria-label="Language"><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="zh">中文</option></select>
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☼</button>
+  </div>
+</header>
+<main>
+<section class="hero">
+ <div><div class="eyebrow"><span class="pulse"></span><span id="eyebrow">YOUR TIME, IN HARMONY</span></div>
+ <h1 id="greeting">Make room<br><em>for what matters.</em></h1>
+ <p id="subtitle">A thoughtful calendar for life, anywhere in the world.</p></div>
+ <div class="orb" aria-hidden="true"><div class="orb-core"></div><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span></div>
+</section>
+<section class="calendar-card">
+ <div class="calendar-head">
+  <div><div class="eyebrow" id="calendarLabel">YOUR CALENDAR</div><h2 id="monthTitle">Month 2026</h2></div>
+  <div class="month-controls"><button id="prev" class="icon-btn" aria-label="Previous month">←</button><button id="today" class="today-btn">Today</button><button id="next" class="icon-btn" aria-label="Next month">→</button></div>
+ </div>
+ <div class="weekdays" id="weekdays"></div><div class="days" id="days"></div>
+ <div class="legend"><span><i class="dot today-dot"></i><span id="todayLegend">Today</span></span><span><i class="dot event-dot"></i><span id="eventLegend">Has events</span></span></div>
+</section>
+<section class="agenda">
+ <div class="agenda-head"><div><div class="eyebrow" id="agendaLabel">YOUR AGENDA</div><h2 id="selectedTitle">Selected day</h2></div><button id="addEvent" class="primary-btn"><span>＋</span><span id="addLabel">Add event</span></button></div>
+ <div id="eventList" class="event-list"></div>
+</section>
+</main>
+<footer><span>◒ LUNARA GLOBAL</span><span id="footerText">Your time. Your world.</span></footer>
+</div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <form id="eventForm" class="modal-card">
+  <button type="button" id="closeModal" class="close-btn" aria-label="Close">×</button>
+  <div class="eyebrow" id="modalEyebrow">MAKE IT COUNT</div><h2 id="modalTitle">New event</h2>
+  <label><span id="eventNameLabel">Event name</span><input id="eventName" maxlength="80" required placeholder="What matters today?"></label>
+  <label><span id="eventDateLabel">Date</span><input id="eventDate" type="date" required></label>
+  <label><span id="eventTimeLabel">Time (optional)</span><input id="eventTime" type="time"></label>
+  <div class="form-actions"><button type="button" id="cancelEvent" class="today-btn">Cancel</button><button class="primary-btn" type="submit" id="saveEvent">Save event</button></div>
+ </form>
+</div>
+<script src="app.js"></script>
+</body></html>
