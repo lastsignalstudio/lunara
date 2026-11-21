@@ -1,0 +1,11 @@
+{
+  "name": "LUNARA GLOBAL",
+  "short_name": "LUNARA",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080d1b",
+  "theme_color": "#080d1b",
+  "description": "LUNARA GLOBAL v0.4.1 — a country-adaptive visual calendar experience.",
+  "icons": []
+}
